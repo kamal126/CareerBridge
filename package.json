@@ -1,15 +1,14 @@
 {
-  "name": "careerbridge",
+  "name": "careerbridge-backend",
   "version": "1.0.0",
-  "description": "Built a web app to provide honest, transparent guidance and enable real-time doubt resolution by connecting students with verified university seniors.",
+  "description": "Backend for CareerBridge: a platform connecting students with verified university seniors for real-time guidance.",
   "keywords": [
     "CareerBridge",
     "Backend",
     "express",
-    "dotnet",
     "mongoose",
-    "DB",
-    "pipeline"
+    "database",
+    "api"
   ],
   "homepage": "https://github.com/kamal126/CareerBridge#readme",
   "bugs": {
@@ -20,17 +19,20 @@
     "url": "git+https://github.com/kamal126/CareerBridge.git"
   },
   "license": "ISC",
-  "author": "Kamal chandra",
+  "author": "Kamal Chandra",
   "type": "module",
-  "main": "index.js",
+  "main": "server.js",
   "scripts": {
-    "start": "npm index.js"
+    "start": "node src/server.js",
+    "dev": "nodemon src/server.js",
+    "format": "prettier --write ."
   },
   "dependencies": {
-    "dotnet": "^1.1.4",
-    "express": "^5.1.0"
+    "dotenv": "^16.4.5",
+    "express": "^4.18.2"
   },
   "devDependencies": {
+    "nodemon": "^3.1.0",
     "prettier": "^3.6.2"
   }
 }

@@ -1,0 +1,33 @@
+{
+  "name": "careerbridge",
+  "version": "1.0.0",
+  "description": "Built a web app to provide honest, transparent guidance and enable real-time doubt resolution by connecting students with verified university seniors.",
+  "keywords": [
+    "CareerBridge",
+    "Backend",
+    "express",
+    "dotnet",
+    "mongoose",
+    "DB",
+    "pipeline"
+  ],
+  "homepage": "https://github.com/kamal126/CareerBridge#readme",
+  "bugs": {
+    "url": "https://github.com/kamal126/CareerBridge/issues"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/kamal126/CareerBridge.git"
+  },
+  "license": "ISC",
+  "author": "Kamal chandra",
+  "type": "module",
+  "main": "index.js",
+  "scripts": {
+    "start": "npm index.js"
+  },
+  "dependencies": {
+    "dotnet": "^1.1.4",
+    "express": "^5.1.0"
+  }
+}

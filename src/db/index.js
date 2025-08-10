@@ -11,7 +11,7 @@ const connectDB = async () => {
         // console.log(`DB VERSION: ${connectionInstance.connection.serverConfig.version}`);
         // console.log(`DB CLIENT: ${connectionInstance.connection.client.s.url}`);
     } catch (error) {
-        console.error(`\n MONGODB connection FAILED: ${error.message}`);
+        console.log(`\n MONGODB connection FAILED: ${error.message}`);
         process.exit(1);
     }
 };

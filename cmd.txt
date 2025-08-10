@@ -1,0 +1,4 @@
+1. npm init
+2. npm i express dotnet
+3. npm install --save-dev prettier
+4. npx prettier --write .

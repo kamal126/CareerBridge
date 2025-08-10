@@ -1,0 +1,39 @@
+{
+  "name": "careerbridge-backend",
+  "version": "1.0.0",
+  "description": "Backend for CareerBridge: a platform connecting students with verified university seniors for real-time guidance.",
+  "keywords": [
+    "CareerBridge",
+    "Backend",
+    "express",
+    "mongoose",
+    "database",
+    "api"
+  ],
+  "homepage": "https://github.com/kamal126/CareerBridge#readme",
+  "bugs": {
+    "url": "https://github.com/kamal126/CareerBridge/issues"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/kamal126/CareerBridge.git"
+  },
+  "license": "ISC",
+  "author": "Kamal Chandra",
+  "type": "module",
+  "main": "server.js",
+  "scripts": {
+    "start": "node src/server.js",
+    "dev": "nodemon src/server.js",
+    "format": "prettier --write ."
+  },
+  "dependencies": {
+    "dotenv": "^16.4.5",
+    "express": "^4.18.2",
+    "mongoose": "^8.17.1"
+  },
+  "devDependencies": {
+    "nodemon": "^3.1.0",
+    "prettier": "^3.6.2"
+  }
+}

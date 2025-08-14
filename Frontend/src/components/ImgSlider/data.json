@@ -1,0 +1,44 @@
+{
+  "item1": {
+    "url": "/assets/img1.jpeg",
+    "title": "Galgotias",
+    "name": "Noida",
+    "des": "Lorem ipsum dolor sit amet consectetur, adipisicing elit. Officiis culpa similique consequuntur, reprehenderit dicta repudiandae."
+  },
+  "item2": {
+    "url": "/assets/img2.jpeg",
+    "title": "Galgotias University",
+    "name": "Yamuna Expressway Greater Noida",
+    "des": "Lorem ipsum dolor sit amet consectetur, adipisicing elit. Officiis culpa similique consequuntur, reprehenderit dicta repudiandae."
+  },
+  "item3": {
+    "url": "/assets/img3.jpeg",
+    "title": "Galgotias University",
+    "name": "Yamuna Expressway Greater Noida",
+    "des": "Lorem ipsum dolor sit amet consectetur, adipisicing elit. Officiis culpa similique consequuntur, reprehenderit dicta repudiandae."
+  },
+  "item4": {
+    "url": "/assets/img4.jpeg",
+    "title": "Galgotias University",
+    "name": "Yamuna Expressway Greater Noida",
+    "des": "Lorem ipsum dolor sit amet consectetur, adipisicing elit. Officiis culpa similique consequuntur, reprehenderit dicta repudiandae."
+  },
+  "item5": {
+    "url": "/assets/img5.jpeg",
+    "title": "Galgotias University",
+    "name": "Yamuna Expressway Greater Noida",
+    "des": "Lorem ipsum dolor sit amet consectetur, adipisicing elit. Officiis culpa similique consequuntur, reprehenderit dicta repudiandae."
+  },
+  "item6": {
+    "url": "/assets/img3.jpeg",
+    "title": "Galgotias University",
+    "name": "Yamuna Expressway Greater Noida",
+    "des": "Lorem ipsum dolor sit amet consectetur, adipisicing elit. Officiis culpa similique consequuntur, reprehenderit dicta repudiandae."
+  },
+  "item7": {
+    "url": "/assets/img2.jpeg",
+    "title": "Galgotias University",
+    "name": "Yamuna Expressway Greater Noida",
+    "des": "Lorem ipsum dolor sit amet consectetur, adipisicing elit. Officiis culpa similique consequuntur, reprehenderit dicta repudiandae."
+  }
+}

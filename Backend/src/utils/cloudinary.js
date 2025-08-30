@@ -1,36 +1,42 @@
-import {v2 as cloudinary} from "cloudinary"
-import fs from "fs"
+import { v2 as cloudinary } from "cloudinary";
+import fs from "fs";
 
-import { v2 as cloudinary } from 'cloudinary';
+import dotenv from "dotenv";
+dotenv.config(); // load env variables first
 
-
-// Configuration
 cloudinary.config({ 
-    cloud_name: process.env.CLOUDINARY_CLOUD_NAME, 
-    api_key: process.env.CLOUDINARY_API_KEY, 
-    api_secret: process.env.CLOUDINARY_API_SECRET // Click 'View API Keys' above to copy your API secret
+  cloud_name: process.env.CLOUDINARY_CLOUD_NAME, 
+  api_key: process.env.CLOUDINARY_API_KEY, 
+  api_secret: process.env.CLOUDINARY_API_SECRET
 });
 
-// upload file to cloudinary
-const uploadOnCloudinary = async (localFilePath) =>{
+const uploadOnCloudinary = async (localFilePath) => {
     try {
-        if(!localFilePath) return null
-        // Upload the image to Cloudinary
-        const response = await cloudinary.uploader
-            .upload(localFilePath, {
-                response_type: "auto"
-            })
-        // file has been uploaded suceessfully
-        console.log("file uploaded to cloudinary successfully: ", response.url);
-        
-        // remove the file from local uploads folder
-        fs.unlinkSync(localFilePath)
+        if (!localFilePath) return null;
+
+        const path = localFilePath.replace(/\\/g, "/"); // fix Windows paths
+
+        const response = await cloudinary.uploader.upload(path, {
+            resource_type: "auto",
+        });
+
+        console.log("File uploaded successfully:", response.url);
+
+        fs.unlink(path, (err) => {
+            if (err) console.error("Failed to delete temp file:", err);
+        });
+
         return response;
+
     } catch (error) {
-        fs.unlinkSync(localFilePath) // remove the file from local uploads folder
-        console.log("error in uploadOnCloudinary util", error);
+        console.error("Cloudinary upload error:", error);
+
+        fs.unlink(localFilePath, (err) => {
+            if (err) console.error("Failed to delete temp file:", err);
+        });
+
         return null;
     }
-}
+};
 
-export { uploadOnCloudinary }
+export { uploadOnCloudinary };

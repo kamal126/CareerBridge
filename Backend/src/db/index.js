@@ -1,5 +1,4 @@
 import mongoose from 'mongoose';
-// import DB_NAME from "../t.js";
 import { DB_NAME } from "../constant.js";
 
 

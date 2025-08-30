@@ -1,2 +1,2 @@
 // constant.js
-export const DB_NAME = "careerbridge";
+export const DB_NAME = "careerBridge";

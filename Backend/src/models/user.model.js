@@ -25,7 +25,7 @@ const userSchema = new Schema(
       trim: true,
       index: true,
     },
-    avtar: {
+    avatar: {
       type: String, // cloudnary url
       required: true,
     },
@@ -36,7 +36,7 @@ const userSchema = new Schema(
     role: {
       type: String,
       enum: ["Student", "expert", "admin"],
-      default: "Student",
+      default: "admin",
     },
     college: {
       type: Schema.Types.ObjectId,
@@ -72,7 +72,7 @@ userSchema.pre("save", async function(next){
   // agar password modify nhi hua to next
   if(!this.isModified("password")) return next();
   // hash the password
-  this.password = await bcrypt.hash(this.password, process.env.SALT_ROUNDS || 10)
+  this.password = await bcrypt.hash(this.password, 10)
   next();
 })
 
@@ -95,7 +95,7 @@ userSchema.methods.generateAccessToken = function(){
     },
     process.env.ACCESS_TOKEN_SECRET,
     {
-      expiresIn: process.env.ACCESS_TOKEN_EXPIRY || '15m'
+      expiresIn: process.env.ACCESS_TOKEN_EXPIRY
     }
   )
 }
@@ -108,7 +108,7 @@ userSchema.methods.generateRefreshToken = function(){
     },
     process.env.REFRESH_TOKEN_SECRET,
     {
-      expireIn: process.env.REFRESH_TOKEN_EXPIRY || '7d'
+      expireIn: process.env.REFRESH_TOKEN_EXPIRY
     }
   )
 }

@@ -16,7 +16,21 @@ app.use(express.urlencoded({extended:true, limit: '16kb'})); // to parse URL-enc
 app.use(express.static('public')); // to serve static files
 app.use(cookieParser()); // to parse cookies
 
-// Test route
+
+
+
+// routes import
+import userRouter from './routes/user.routes.js';
+// using routes
+app.use('/api/v1/users', userRouter);
+// localhost:8000/api/v1/users/register
+
+
+
+
+
+
+
 
 app.get('/', (req, res)=>{
     res.send("<h1>Welcome to CareerBridge API</h1><p>Connecting students with verified university seniors for real-time guidance.</p>");

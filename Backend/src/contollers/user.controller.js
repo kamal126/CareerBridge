@@ -163,7 +163,7 @@ const loginUser = asyncHandler( async (req, res) => {
     // 2. find user in DB vy email or usrname
     const user = await User.findOne({
         $or: [{username}, {email}]
-    }).select("+password")
+    })
 
     if(!user){
         throw new ApiError(404, "user doesn't exist");

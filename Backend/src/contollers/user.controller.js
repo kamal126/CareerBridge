@@ -324,10 +324,64 @@ const updateCurrPassword = asyncHandler(async (req, res) => {
     );
 });
 
+const getCurruntUser = asyncHandler(async (req, res) =>{
+
+    const user = req.user
+
+    if(!user){
+        throw new ApiError(401, " oooh user not fetched!");
+    }
+
+    console.log(user);
+    
+
+    return res
+    .status(200)
+    .json(
+        new ApiResponse(
+            200,
+            req.user,
+            "User fetched Sucessfully"
+        )
+    )
+
+});
+
+const updateUserDetails = asyncHandler(async (req, res) => {
+    const {email, fullName} = req.body;
+
+    if(!fullName || !email){
+        throw new ApiError(400, "all fields are requied");
+    }
+
+    const user = await User.findByIdAndUpdate(req.user?._id,
+        {
+            $set:{
+                email,
+                fullName
+            }
+        },
+        {
+            new : true
+        }
+    ).select("-password");
+
+
+    return res
+    .status(200)
+    .json(new ApiResponse(
+        200,
+        user,
+        "User Details Sucessfully Updated"
+    ))
+});
+
 export { 
     registerUser, 
     loginUser, 
     logoutUser, 
     refershAccessToken,
-    updateCurrPassword
+    updateCurrPassword,
+    getCurruntUser,
+    updateUserDetails
  };

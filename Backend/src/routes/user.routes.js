@@ -3,7 +3,9 @@ import { registerUser,
             loginUser,
             logoutUser,
             refershAccessToken,
-            updateCurrPassword
+            updateCurrPassword,
+            getCurruntUser,
+            updateUserDetails
 
  } from "../contollers/user.controller.js";
 import { upload } from "../middlewares/multer.middleware.js";
@@ -24,6 +26,8 @@ router.route("/login").post(loginUser)
 router.route("/logout").post(verifyJWT, logoutUser) // verifyJWT middleware to protect the route
 router.route("/refresh-token").post(refershAccessToken) // no need to verifyJWT here as we are using refresh token
 router.route("/password-change").post(verifyJWT, updateCurrPassword)
+router.route("/getUser").post(verifyJWT, getCurruntUser)
+router.route("/updateUser").post(verifyJWT, updateUserDetails)
 
 
 export default router;

@@ -299,12 +299,12 @@ const updateCurrPassword = asyncHandler(async (req, res) => {
     // }
 
 
-    const oldPasswordCorrect = await user.isPasswordCorrect(oldPassword);
+    const isPasswordCorrect = await user.isPasswordCorrect(oldPassword);
 
-    console.log(oldPasswordCorrect);
+    console.log(isPasswordCorrect);
     
 
-    if(!oldPasswordCorrect){
+    if(!isPasswordCorrect){
         throw new ApiError(401, "Incorrect old password! ");
     }
 

@@ -5,6 +5,7 @@ import { ApiError } from "../utils/apiError.js";
 import { ApiResponse } from "../utils/apiResponse.js";
 import jwt from "jsonwebtoken"
 import mongoose from "mongoose";
+import { json } from "stream/consumers";
 
 // generate access token and refresh token 
 const generateAccessAndRefreshTokens = async (userId) => {
@@ -284,6 +285,49 @@ const refershAccessToken = asyncHandler(async(req,res)=>{
     } catch (error) {
         throw new ApiError(401, error?.message || "Invalid refresh token");
     }
-})
+});
 
-export { registerUser, loginUser, logoutUser, refershAccessToken };
+const updateCurrPassword = asyncHandler(async (req, res) => {
+    
+    const {oldPassword, newPassword} = req.body;
+
+    const user = await User.findById(req.user?._id);
+    console.log(user);
+    
+    // if(!user){
+    //     throw new ApiError(404, "user not found");
+    // }
+
+
+    const oldPasswordCorrect = await user.isPasswordCorrect(oldPassword);
+
+    console.log(oldPasswordCorrect);
+    
+
+    if(!oldPasswordCorrect){
+        throw new ApiError(401, "Incorrect old password! ");
+    }
+
+    user.password = newPassword;
+
+    await user.save({validateBeforeSave:false});
+
+
+    return res
+    .status(200)
+    .json(
+        new ApiResponse(
+            200,
+            {},
+            "Password Successfully Changed"
+        )
+    );
+});
+
+export { 
+    registerUser, 
+    loginUser, 
+    logoutUser, 
+    refershAccessToken,
+    updateCurrPassword
+ };

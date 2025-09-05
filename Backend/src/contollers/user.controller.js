@@ -376,6 +376,10 @@ const updateUserDetails = asyncHandler(async (req, res) => {
     ))
 });
 
+const updateAvatar = asyncHandler(async (req, res) => {
+
+});
+
 export { 
     registerUser, 
     loginUser, 

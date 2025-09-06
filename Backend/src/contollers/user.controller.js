@@ -387,5 +387,6 @@ export {
     refershAccessToken,
     updateCurrPassword,
     getCurruntUser,
-    updateUserDetails
+    updateUserDetails,
+    updateAvatar
  };

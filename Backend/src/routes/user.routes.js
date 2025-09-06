@@ -25,9 +25,9 @@ router.route("/login").post(loginUser)
 // secure routes
 router.route("/logout").post(verifyJWT, logoutUser) // verifyJWT middleware to protect the route
 router.route("/refresh-token").post(refershAccessToken) // no need to verifyJWT here as we are using refresh token
-router.route("/password-change").post(verifyJWT, updateCurrPassword)
-router.route("/getUser").post(verifyJWT, getCurruntUser)
-router.route("/updateUser").post(verifyJWT, updateUserDetails)
+router.route("/password-change").patch(verifyJWT, updateCurrPassword)
+router.route("/getUser").get(verifyJWT, getCurruntUser)
+router.route("/updateUser").patch(verifyJWT, updateUserDetails)
 
 
 export default router;

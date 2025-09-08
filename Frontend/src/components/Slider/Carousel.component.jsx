@@ -74,19 +74,8 @@ export default function ImageSlider() {
 
   return (
     <>
-      {/* Header */}
-      <header>
-        <nav>
-          <a href="/" className="active">Home</a>
-          <a href="/">About</a>
-          <a href="/">Portfolio</a>
-          <a href="/">Services</a>
-          <a href="/">Contact</a>
-        </nav>
-      </header>
-
       {/* Carousel */}
-      <div className="carousel" ref={carouselRef}>
+      <div className="carousel " ref={carouselRef}>
         <div className="list" ref={listRef}>
           {images.map((img, idx) => (
             <div
@@ -112,7 +101,7 @@ export default function ImageSlider() {
         </div>
 
         {/* Arrows */}
-        <div className="arrows">
+        <div className="arrows ">
           <button className="prev" onClick={() => showSlider("prev")}>
             &lt;
           </button>
